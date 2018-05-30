@@ -4,10 +4,13 @@
 
 import pymssql
 import json
+import os
+import sys
 
 class DBConnection(object):
 	def __init__(self):
-		filePath  = "../public/dbconnection.json"
+		path = os.path.abspath(os.path.dirname(sys.argv[0]))
+		filePath = path + "/Public/dbconnection.json"
 		with open(filePath,"r") as jsonFile:
 			dbcConfig = json.loads(jsonFile.read())
 		self.datehost = dbcConfig["datehost"]
@@ -31,3 +34,7 @@ class DBConnection(object):
 	def disConnect(self):
 		self.cur.close()
 		self.conn.close()
+
+if __name__ == '__main__':
+	dbc = DBConnection()
+	print dbc.filePath

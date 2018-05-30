@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 # filename: updateZRMK.py
 
-import sys
-sys.path.append("../")
 
 from Public.dboperation import DBOperation
 
